@@ -1,1 +1,40 @@
-@import "./stylesheets/base.less";
+@terminal-background-color: black;
+@terminal-foreground-color: #57FF57;
+
+.editor {
+  background-color: @terminal-background-color;
+  color: @terminal-foreground-color;
+
+  .gutter {
+    border-right: 1px solid @terminal-foreground-color;
+
+    .line-number {
+      opacity: 1;
+
+      &.cursor-line {
+        background-color: @terminal-foreground-color;
+        color: @terminal-background-color;
+      }
+    }
+  }
+
+  .scroll-view {
+    padding: 0px 15px;
+
+    .wrap-guide {
+      background-color: darken(@terminal-foreground-color, 35%);
+    }
+
+    .indent-guide, .invisible-character {
+      color: darken(@terminal-foreground-color, 35%);
+    }
+
+    .selection .region {
+      background-color: darken(@terminal-foreground-color, 58%);
+    }
+
+    .cursor {
+      color: lighten(@terminal-foreground-color, 10%);
+    }
+  }
+}
